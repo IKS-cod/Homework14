@@ -73,6 +73,7 @@ public class Employee {
     public int getDepartment() {
         return this.department;
     }
+
     @Override
     public String toString() {
         return "id =" + id + ", ФИО =" + fullName + ", зарплата =" + salary + ", отдел =" + department + ";";
@@ -83,11 +84,12 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Double.compare(salary, employee.salary) == 0 && department == employee.department && Objects.equals(fullName, employee.fullName);
+        return id == employee.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fullName, salary, department);
+        return Objects.hash(id);
     }
+
 }

@@ -112,7 +112,7 @@ public class Main {
     //Сумму затрат на зп по отделу;
     public static double countTotalSalaryInDepartment(Employee[] info, int numberDepartment) {
         double sumSalary = 0;
-        countDep=0;
+        countDep = 0;
         for (int i = 0; i < info.length; i++) {
             if (info[i] != null && info[i].getDepartment() == numberDepartment) {
                 sumSalary = sumSalary + info[i].getSalary();

@@ -115,8 +115,8 @@ public class Main {
     //Сумму затрат на зп по отделу;
     public static double countTotalSalaryInDepartment(int numberDepartment) {
         double sumSalary = 0;
-        for (int i = 0; i < info.length && info[i] != null; i++) {
-            if (info[i].getDepartment() == numberDepartment) {
+        for (int i = 0; i < info.length; i++) {
+            if (info[i] != null && info[i].getDepartment() == numberDepartment) {
                 sumSalary = sumSalary + info[i].getSalary();
             }
         }
@@ -126,18 +126,21 @@ public class Main {
     //Создал метод "Получить в качестве параметра номер отдела (1-5) и найти"
     //Среднюю зп по отделу (учесть, что количество людей в отделе отличается от employees.length);
     public static double countMiddleSalaryInDepartment(int numberDepartment) {
-        double middleSalary;
         double sumSalary = 0;
         int count = 0;
-        for (int i = 0; i < info.length && info[i] != null; i++) {
-            if (info[i].getDepartment() == numberDepartment) {
+        for (int i = 0; i < info.length; i++) {
+            if (info[i] != null && info[i].getDepartment() == numberDepartment) {
                 count += 1;
                 sumSalary = sumSalary + info[i].getSalary();
             }
         }
-        middleSalary = sumSalary / count;
-        return middleSalary;
-    }
+        if (count != 0) {
+            double middleSalary = sumSalary / count;
+            return middleSalary;
+        } else {
+            return count;
+
+    }}
 
     //Создал метод "Получить в качестве параметра номер отдела (1-5) и найти"
     //Проиндексировать зарплату всех сотрудников отдела на процент, который приходит в качестве параметра;
